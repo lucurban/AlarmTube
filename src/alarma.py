@@ -1,6 +1,7 @@
 '''
-Este programa se encarga de representar una alarma individual conociendo la 
-hora de activación y su estado actual.
+Este programa se encarga de representar una alarma individual conociendo el 
+dia de la semana y la hora en que se reproduce el video, ademas del estado 
+actual.
 '''
 
 '''
@@ -10,37 +11,28 @@ hora de activación y su estado actual.
 '''
 
 class Alarma:
-    #---Constructor de la clase Alarma---
-    def __init__(self, hora_activacion):
+    def __init__(self, dia_semana, hora, estado=False):
         '''
         Constructor de la clase Alarma.
         
         Parametros:
-            hora_activacion: La hora de activación de la alarma.
+            dia_semana: El día de la semana en que se activa la alarma.
+            hora: La hora en que se activa la alarma.
+            estado: El estado inicial de la alarma (True para activada, False 
+            para desactivada).
         '''
-        self.hora_activacion = hora_activacion
-        self.estado = False  # Estado inicial de la alarma (inactiva)
+        self.dia_semana = dia_semana
+        self.hora = hora
+        self.estado = estado
 
-    #---Metodo para activar la alarma---
     def activar(self):
         '''
         Método que activa la alarma.
         '''
         self.estado = True
 
-    #---Metodo para desactivar la alarma---
     def desactivar(self):
         '''
         Método que desactiva la alarma.
         '''
         self.estado = False
-
-    #---Metodo para verificar si la alarma está activa---
-    def esta_activa(self):
-        '''
-        Método que verifica si la alarma está activa.
-        
-        Returna:
-            bool: True si la alarma está activada, False en caso contrario.
-        '''
-        return self.estado
