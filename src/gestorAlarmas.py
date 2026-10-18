@@ -17,6 +17,7 @@ class GestorAlarmas:
         Inicializa una lista vacía de alarmas.
         '''
         self.alarmas = []
+        self.contador_alarmas = 0
 
     def agregar_alarma(self, alarma):
         '''
@@ -25,7 +26,25 @@ class GestorAlarmas:
         Parametros:
             alarma: Una instancia de la clase Alarma que se desea agregar.
         '''
+        for alarma_existente in self.alarmas:
+            if alarma_existente.nombre == alarma.nombre:
+                return False
+
         self.alarmas.append(alarma)
+
+        self.contador_alarmas += 1
+
+        return True
+
+    def obtener_nombre(self, alarma):
+            '''
+            Método que obtiene el nombre de una alarma.
+            
+            Parametros:
+                alarma: Una instancia de la clase Alarma.
+            '''
+            if alarma.nombre is None:
+                alarma.nombre = 'Alarma '+ str(self.contador_alarmas + 1)
 
     def eliminar_alarma(self, alarma):
         '''
@@ -36,6 +55,8 @@ class GestorAlarmas:
         '''
         if alarma in self.alarmas:
             self.alarmas.remove(alarma)
+            
+            return f'La alarma {alarma.nombre} ha sido eliminada'
 
     def listar_alarmas(self):
         '''

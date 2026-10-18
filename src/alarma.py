@@ -11,7 +11,7 @@ actual.
 '''
 
 class Alarma:
-    def __init__(self, dia_semana, hora, estado=False):
+    def __init__(self, dia_semana, hora, nombre=None, estado=False):
         '''
         Constructor de la clase Alarma.
         
@@ -21,6 +21,7 @@ class Alarma:
             estado: El estado inicial de la alarma (True para activada, False 
             para desactivada).
         '''
+        self.nombre = nombre
         self.dia_semana = dia_semana
         self.hora = hora
         self.estado = estado
